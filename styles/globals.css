@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    outline: none;
+}
+body {
+    font-family: 'Cairo', sans-serif;
+    font-size: 14px;
+    line-height: 25px;
+}
+
+.btn-1{
+    text-transform: capitalize;
+    position: relative;
+    text-align: center;
+    background-color: #EE232F;
+    color: #FFF;
+    z-index: 1;
+    font-size: 18px;
+    font-weight: 600;
+    min-width: 180px;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 15px;
+    border-radius: 3px;
+    overflow: hidden;
+    font-family: 'Cairo', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;    cursor: pointer;
+    -webkit-transition: color 1s ease-in-out, background-color .2s ease-in-out, border-color .2s ease-in-out;
+    -o-transition: color 1s ease-in-out, background-color .2s ease-in-out, border-color .2s ease-in-out;
+    transition: color 1s ease-in-out, background-color .2s ease-in-out, border-color .2s ease-in-out;
+}
+.btn-1 span{
+    position: relative;
+    z-index: 2;
+}
+.btn-1:after,
+.btn-1:before{
+    content: '';
+    position: absolute;
+    height: 50%;
+    width: 0;
+    background-color: #EE232F;
+    z-index: 1;
+    -webkit-transition: .3s cubic-bezier(.785,.135,.15,.86);
+    -o-transition: .3s cubic-bezier(.785,.135,.15,.86);
+    transition: .3s cubic-bezier(.785,.135,.15,.86);
+}
+.btn-1:after{
+    top: 0;
+    left: 0;
+    right: auto;
+}
+.btn-1:hover:after{
+    width: 100%;
+    right: 0;
+    left: auto;
+}
+.btn-1:before{
+    bottom: 0;
+    right: 0;
+    left: auto;
+}
+.btn-1:hover:before{
+    width: 100%;
+    left: 0;
+    right: auto;
+}
+.btn-1:hover svg{
+    fill: #EE232F;
+}
+.btn-1:hover span{
+    color: #EE232F;
+}
+.btn-1:hover:after,
+.btn-1:hover:before{
+    background-color: #FFF;
+}
+.btn-2{
+    background-color: #262626;
+}
+.btn-2 span{
+    color: #FFF;
+}
+.btn-2:hover span{
+    color: #FFF;
+}
+.btn-2:hover:after,
+.btn-2:hover:before{
+    background-color: #EE232F;
+}
+.btn-3{
+    background-color: #EE232F;
+}
+.btn-3 span{
+    color: #FFF;
+}
+.btn-3:hover span{
+    color: #FFF;
+}
+.btn-3:hover:after,
+.btn-3:hover:before{
+    background-color: #262626;
+}
+.btn-4{
+    background-color: #FFF;
+}
+.btn-4 span{
+    color: #EE232F;
+}
+.btn-4:hover span{
+    color: #EE232F;
+}
+.btn-4:hover:after,
+.btn-4:hover:before{
+    background-color: #262626;
+}
