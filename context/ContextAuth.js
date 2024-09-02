@@ -28,13 +28,16 @@ export function ContextAuthProvider({ children }) {
     storage.set("token", token);
   };
 
-  const value = useMemo(() => ({
-    user, 
-    isLoggedIn, 
-    login, 
-    logout, 
-    saveTokens,
-  }), [user, isLoggedIn]);
+  const value = useMemo(
+    () => ({
+      user,
+      isLoggedIn,
+      login,
+      logout,
+      saveTokens,
+    }),
+    [user, isLoggedIn]
+  );
 
   useEffect(() => {
     const new_user = storage.get("dataUser");

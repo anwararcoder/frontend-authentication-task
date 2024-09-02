@@ -1,10 +1,15 @@
 import { AxiosAPI } from "@/axios/axiosInstance";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 const useFetch = (url, options = {}) => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [refreshIndex, setRefreshIndex] = useState(0);
+
+  const refresh = useCallback(() => {
+    setRefreshIndex((prevIndex) => prevIndex + 1);
+  }, []);
 
   useEffect(() => {
     const getData = async () => {
@@ -20,9 +25,9 @@ const useFetch = (url, options = {}) => {
     };
 
     getData();
-  }, [url]);
+  }, [url, refreshIndex]);
 
-  return { data, error, loading };
+  return { data, error, loading, refresh };
 };
 
 export default useFetch;

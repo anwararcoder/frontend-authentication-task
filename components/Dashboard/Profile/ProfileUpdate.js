@@ -3,22 +3,17 @@ import Loading from "@/components/Loading";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 
-const ProfileUpdate = () => {
+const ProfileUpdate = ({ data, refreshData }) => {
   const [cover, setCover] = useState(null);
   const [coverFileName, setCoverFileName] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      setCover(file);
-      setCoverFileName(file.name);
-    }
-  };
-
+  const [firstName, setFirstName] = useState(data ? data?.first_name : "");
+  const [lastName, setLastName] = useState(data ? data?.last_name : "");
+  const [phone, setPhone] = useState(data ? data?.phone : "");
+  const [email, setEmail] = useState(data ? data?.email : "");
+  const [bio, setBio] = useState(data ? data?.bio : "");
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (!cover) {
@@ -33,11 +28,26 @@ const ProfileUpdate = () => {
       toast.error("Please Enter Your Last Name to Update.");
       return;
     }
+    if (!phone) {
+      toast.error("Please Enter Your First Name to Update.");
+      return;
+    }
+    if (!email) {
+      toast.error("Please Enter Your Last Name to Update.");
+      return;
+    }
+    if (!bio) {
+      toast.error("Please Enter Your Last Name to Update.");
+      return;
+    }
 
     const formData = new FormData();
     formData.append("cover", cover);
-    formData.append("firstName", firstName);
-    formData.append("lastName", lastName);
+    formData.append("first_name", firstName);
+    formData.append("last_name", lastName);
+    formData.append("phone", phone);
+    formData.append("email", email);
+    formData.append("bio", bio);
 
     setLoading(true);
 
@@ -48,10 +58,13 @@ const ProfileUpdate = () => {
         },
       });
       toast.success("Profile updated successfully!");
+      refreshData()
       setCover(null);
       setCoverFileName("");
       setFirstName("");
       setLastName("");
+      setPhone("");
+      setBio("");
     } catch (error) {
       toast.error(error.response?.data?.message || "Failed to update profile.");
     } finally {
@@ -101,7 +114,7 @@ const ProfileUpdate = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-[30px] mb-[30px]">
         <div>
-          <label class="text-[16px] font-bold leading-[1] block mb-[15px] text-[#666]">
+          <label className="text-[16px] font-bold leading-[1] block mb-[15px] text-[#666]">
             First Name
           </label>
           <input
@@ -110,11 +123,11 @@ const ProfileUpdate = () => {
             placeholder="Anwar Ramadan"
             defaultValue={firstName}
             onChange={(e) => setFirstName(e.target.value)}
-            class="w-[100%] h-[50px] leading-[50px] border-[1px] border-[#DDD] hover:border-[#EE232F] focus:border-[#EE232F] text-[#666] text-[14px] rounded-[8px] bg-[#FFF] px-[15px]"
+            className="w-[100%] h-[50px] leading-[50px] border-[1px] border-[#DDD] hover:border-[#EE232F] focus:border-[#EE232F] text-[#666] text-[14px] rounded-[8px] bg-[#FFF] px-[15px]"
           />
         </div>
         <div>
-          <label class="text-[16px] font-bold leading-[1] block mb-[15px] text-[#666]">
+          <label className="text-[16px] font-bold leading-[1] block mb-[15px] text-[#666]">
             Last Name
           </label>
           <input
@@ -123,11 +136,37 @@ const ProfileUpdate = () => {
             placeholder="Ramadan"
             defaultValue={lastName}
             onChange={(e) => setLastName(e.target.value)}
-            class="w-[100%] h-[50px] leading-[50px] border-[1px] border-[#DDD] hover:border-[#EE232F] focus:border-[#EE232F] text-[#666] text-[14px] rounded-[8px] bg-[#FFF] px-[15px]"
+            className="w-[100%] h-[50px] leading-[50px] border-[1px] border-[#DDD] hover:border-[#EE232F] focus:border-[#EE232F] text-[#666] text-[14px] rounded-[8px] bg-[#FFF] px-[15px]"
+          />
+        </div>
+        <div>
+          <label className="text-[16px] font-bold leading-[1] block mb-[15px] text-[#666]">
+            Phone
+          </label>
+          <input
+            id="phone"
+            name="phone"
+            placeholder="+201212843661"
+            defaultValue={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            className="w-[100%] h-[50px] leading-[50px] border-[1px] border-[#DDD] hover:border-[#EE232F] focus:border-[#EE232F] text-[#666] text-[14px] rounded-[8px] bg-[#FFF] px-[15px]"
+          />
+        </div>
+        <div>
+          <label className="text-[16px] font-bold leading-[1] block mb-[15px] text-[#666]">
+            Bio
+          </label>
+          <input
+            id="Bio"
+            name="Bio"
+            placeholder="Frontend Developer"
+            defaultValue={bio}
+            onChange={(e) => setBio(e.target.value)}
+            className="w-[100%] h-[50px] leading-[50px] border-[1px] border-[#DDD] hover:border-[#EE232F] focus:border-[#EE232F] text-[#666] text-[14px] rounded-[8px] bg-[#FFF] px-[15px]"
           />
         </div>
       </div>
-      <button type="submit" class="btn-1 btn-3 w-full">
+      <button type="submit" className="btn-1 btn-3 w-full">
         <span>Update Profile</span>
       </button>
     </form>

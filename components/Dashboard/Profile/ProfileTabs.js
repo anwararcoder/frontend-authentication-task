@@ -103,10 +103,10 @@ const ProfileTabs = ({ data }) => {
           Account Access
         </li>
       </ul>
-      { tabIndex === 1 && <PersonalInformationTab /> }
-      { tabIndex === 2 && <>Personal Information</> }
-      { tabIndex === 3 && <>Documents</> }
-      { tabIndex === 4 && <>Account Access</> }
+      {tabIndex === 1 && <PersonalInformationTab data={data} />}
+      {tabIndex === 2 && <>Personal Information</>}
+      {tabIndex === 3 && <>Documents</>}
+      {tabIndex === 4 && <>Account Access</>}
     </div>
   );
 };

@@ -1,7 +1,6 @@
 import { storage } from "@/utils/LocalStorage";
 import axios from "axios";
 
-
 const TOKEN_AUTH = storage.get("token");
 
 export const AxiosAPI = axios.create({

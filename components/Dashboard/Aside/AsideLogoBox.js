@@ -5,7 +5,11 @@ import LogoImage from "./../../../public/logo.png";
 const AsideLogoBox = ({ openAside, setOpenAside }) => {
   return (
     <div className="flex  items-center justify-between lg:justify-center gap-[15px] p-[25px] my-[40px]">
-      <Image className="max-w-[150px] lg:max-w-[200px]" src={LogoImage} alt="LogoImage" />
+      <Image
+        className="max-w-[150px] lg:max-w-[200px]"
+        src={LogoImage}
+        alt="LogoImage"
+      />
       <button
         className="lg:hidden w-[40px] h-[40px] bg-[#EE232F] flex items-center justify-center rounded-[3px] hover:bg-[#262626]"
         onClick={() => setOpenAside(!openAside)}

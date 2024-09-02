@@ -12,7 +12,7 @@ const LayoutAdmin = ({ children }) => {
 
   return (
     <>
-      {/* {isLoggedIn ? ( */}
+      {isLoggedIn ? (
         <div className="h-screen">
           <div className="flex h-full overflow-hidden">
             <Aside openAside={openAside} setOpenAside={setOpenAside} />
@@ -24,9 +24,9 @@ const LayoutAdmin = ({ children }) => {
             </div>
           </div>
         </div>
-      {/* // ) : (
-      //   router.push("/")
-      // )} */}
+      ) : (
+        router.push("/")
+      )}
     </>
   );
 };
