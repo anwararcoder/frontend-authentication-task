@@ -7,9 +7,7 @@ import Loading from "@/components/Loading";
 import ProfileTabs from "./ProfileTabs";
 
 const Profile = () => {
-  const { data, loading } = useFetch("/profile/");
-  console.log(data);
-  
+  const { data, loading } = useFetch("/profile/");  
 
   if (loading) {
     return <Loading />

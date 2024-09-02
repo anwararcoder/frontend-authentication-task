@@ -40,7 +40,7 @@ const DropdownBox = () => {
             <li>
               <Link
                 href="/dashboard/employees/profile"
-                className="flex items-center gap-[20px] text-sm lg:text-base font-medium text-[#64748B] hover:text-[#3498db]"
+                className="flex items-center gap-[20px] text-sm lg:text-base font-medium text-[#666] hover:text-[#EE232F]"
               >
                 <svg
                   className="fill-current"

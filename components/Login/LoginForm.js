@@ -100,7 +100,7 @@ const LoginForm = () => {
           >
             {showPassword ? (
               <svg
-                className="fill-[#B3B3B3] hover:fill-[#1CB5A5]"
+                className="fill-[#B3B3B3] hover:fill-[#EE232F]"
                 xmlns="http://www.w3.org/2000/svg"
                 width="25"
                 height="25"
@@ -115,7 +115,7 @@ const LoginForm = () => {
               </svg>
             ) : (
               <svg
-                className="fill-[#B3B3B3] hover:fill-[#1CB5A5]"
+                className="fill-[#B3B3B3] hover:fill-[#EE232F]"
                 xmlns="http://www.w3.org/2000/svg"
                 width="25"
                 height="25"
